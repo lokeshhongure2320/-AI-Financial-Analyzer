@@ -44,5 +44,5 @@ def run_pipeline(query):
     # Step 5: Build prompt
     prompt = build_prompt(query, context)
 
-
+    response = generate(prompt)
     return response

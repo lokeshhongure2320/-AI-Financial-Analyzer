@@ -7,7 +7,7 @@ from src.preprocessing.chunking import chunk_text
 
 
 def process_data():
-    print("🚀 Pipeline started")
+    print("Pipeline started")
 
     texts = load_pdfs("data/raw/pdf_reports.pdf")
 
@@ -18,18 +18,18 @@ def process_data():
         chunks = chunk_text(clean)
         all_chunks.extend(chunks)
 
-    print("📦 Total chunks:", len(all_chunks))
+    print("Total chunks:", len(all_chunks))
 
-    # 🔥 Ensure folder exists
+    #  Ensure folder exists
     os.makedirs("data/processed", exist_ok=True)
 
-    # 🔥 Write file
+    #  Write file
     file_path = "data/processed/chunks.json"
 
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(all_chunks, f, ensure_ascii=False, indent=2)
 
-    print("✅ chunks.json CREATED at:", file_path)
+    print("chunks.json CREATED at:", file_path)
 
 
 if __name__ == "__main__":

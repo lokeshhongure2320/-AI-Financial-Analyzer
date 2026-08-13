@@ -10,7 +10,7 @@ def llm(prompt):
         messages=[
             {"role": "user", "content": prompt}
         ],
-        max_tokens=400   # increased for structured output
+        max_tokens=400   
     )
     return response.choices[0].message.content
 
@@ -18,8 +18,7 @@ def llm(prompt):
 def generate(prompt):
     response = llm(prompt)
 
-    # enforce structure
     if "Recommendation" not in response:
-        return "⚠️ Output formatting failed. Try again."
+        return "Output formatting failed. Try again."
 
     return response
